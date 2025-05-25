@@ -1,3 +1,3 @@
 # MusicReview
 
-A simple web app built to teach me full stack enigineering
+A simple web app built to teach me full stack enigineering. The tech stack is pending
