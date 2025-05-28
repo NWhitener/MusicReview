@@ -2,9 +2,9 @@ from sqlalchemy import create_engine, Integer, String, Float, ForeignKey, MetaDa
 
 engine = create_engine('sqlite+pysqlite:///musicreview.db')
 
-
 meta = MetaData()
 
+#User Table 
 users = Table(
     'users', 
     meta, 
@@ -13,7 +13,7 @@ users = Table(
     Column('passwd_hash', String, nullable = False), 
     Column('created_at', DateTime, nullable = False)
 )
-
+#Song Table
 song = Table(
     'song', 
     meta, 
@@ -24,7 +24,7 @@ song = Table(
     Column('run_time', Float, nullable = True), 
     Column('genre', String, nullable = True)
 )
-
+#Artist Table
 artist = Table(
     'artist', 
     meta, 
@@ -33,7 +33,7 @@ artist = Table(
     Column('artist_genre', String, nullable = True), 
     Column('artist_albums', String, nullable = True)
 )
-
+#Review Table
 reviews = Table(
     'reviews', 
     meta, 
@@ -43,7 +43,7 @@ reviews = Table(
     Column('review_rating', Float, nullable = True), 
     Column('review_text', String, nullable = True)
 )
-
+#Album Table
 album = Table(
     'album', 
     meta, 
@@ -53,4 +53,5 @@ album = Table(
     Column('artist_id', Integer, ForeignKey('artist.artist_id'))
 )
 
+#Creates the tables
 meta.create_all(engine)
